@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     isEqual = false;
 
+    ui->pushButton_number0->setShortcut(QKeySequence("0"));
     ui->pushButton_number1->setShortcut(QKeySequence("1"));
     ui->pushButton_number2->setShortcut(QKeySequence("2"));
     ui->pushButton_number3->setShortcut(QKeySequence("3"));
@@ -23,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_exp_minus->setShortcut(QKeySequence("-"));
     ui->pushButton_exp_mal->setShortcut(QKeySequence("*"));
     ui->pushButton_exp_geteilt->setShortcut(QKeySequence("/"));
+
+    model = new QStringListModel(this);
+    model->setStringList(history);
+    ui->listView->setModel(model);
 }
 
 MainWindow::~MainWindow()
@@ -32,24 +37,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    try
-    {
-        QString str = ui->textEdit->toPlainText();
-        double fVal = str.toDouble();
-        mu::Parser p;
-        p.DefineVar("a", &fVal);
-        p.SetExpr(ui->textEdit->toPlainText().toStdString());
+    QString calcexpression = ui->textEdit->toPlainText();
+    history.append(calcexpression);
+    ui->textEdit->setText(Calculate(calcexpression));
 
-        std::stringstream buffer;
-        buffer << p.Eval();
-        QString w = QString::fromStdString(buffer.str());
-        SetCalcText(w);
-        isEqual=true;
-    }
-    catch (mu::Parser::exception_type &e)
-    {
-        SetCalcText("");
-    }
+    model->setStringList(history);
 }
 
 void MainWindow::on_pushButton_number0_clicked()
@@ -180,4 +172,29 @@ void MainWindow::AddCalcText(QString txtstr)
     {
         ui->textEdit->setText(ui->textEdit->toPlainText()+txtstr);
     }
+}
+
+QString MainWindow::Calculate(QString cStr)
+{
+    QString erg("");
+
+    try
+    {
+        mu::Parser p;
+        p.SetExpr(cStr.toStdString());
+        std::stringstream buffer;
+        buffer << p.Eval();
+        erg = QString::fromStdString(buffer.str());
+    }
+    catch (mu::Parser::exception_type &e)
+    {
+        erg ="Parser Error";
+    }
+
+    return erg;
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+
 }

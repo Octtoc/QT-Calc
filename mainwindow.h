@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStringList>
+#include <QStringListModel>
 
 namespace Ui {
 class MainWindow;
@@ -62,10 +64,15 @@ private slots:
 
     void on_pushButton_number0_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QList<QString> history;
     void AddCalcText(QString txtstr);
     void SetCalcText(QString txtstr);
+    QString Calculate(QString cStr);
+    QStringListModel *model;
     bool isEqual;
 };
 
