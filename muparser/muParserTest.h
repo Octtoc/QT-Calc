@@ -29,7 +29,7 @@
 #include <string>
 #include <cstdlib>
 #include <numeric> // for accumulate
-#include "muParser.h"
+#include "muparser.h"
 #include "muParserInt.h"
 
 /** \file

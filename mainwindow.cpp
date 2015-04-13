@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "muparser/muparser.h"
+#include <muParser.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

@@ -20,7 +20,7 @@ FORMS    += mainwindow.ui
 
 #include(muparser/muparser.pri)
 
-unix|win32: LIBS += -L$$PWD/muparser/lib/ -lmuparser
+unix|win32: LIBS += -L$$PWD/muparser_v2_2_4/lib/ -lmuparser
 
-INCLUDEPATH += $$PWD/muparser/include
-DEPENDPATH += $$PWD/muparser/include
+INCLUDEPATH += $$PWD/muparser_v2_2_4/include
+DEPENDPATH += $$PWD/muparser_v2_2_4/include
