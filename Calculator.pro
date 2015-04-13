@@ -18,4 +18,9 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-include(muparser/muparser.pri)
+#include(muparser/muparser.pri)
+
+unix|win32: LIBS += -L$$PWD/muparser/lib/ -lmuparser
+
+INCLUDEPATH += $$PWD/muparser/include
+DEPENDPATH += $$PWD/muparser/include
