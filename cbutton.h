@@ -2,21 +2,17 @@
 #define CBUTTON_H
 
 #include <QWidget>
+#include <QApplication>
+#include <QPushButton>
 
-namespace Ui {
-class CButton;
-}
-
-class CButton : public QWidget
+class CButton : public QPushButton
 {
     Q_OBJECT
 
 public:
+    QString calcvalue;
     explicit CButton(QWidget *parent = 0);
     ~CButton();
-
-private:
-    Ui::CButton *ui;
 };
 
 #endif // CBUTTON_H

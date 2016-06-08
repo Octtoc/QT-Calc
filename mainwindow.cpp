@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <muParser.h>
+#include <muparser/muparser.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,15 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_number7->setShortcut(QKeySequence("7"));
     ui->pushButton_number8->setShortcut(QKeySequence("8"));
     ui->pushButton_number9->setShortcut(QKeySequence("9"));
-
     ui->pushButton_exp_plus->setShortcut(QKeySequence("+"));
     ui->pushButton_exp_minus->setShortcut(QKeySequence("-"));
     ui->pushButton_exp_mal->setShortcut(QKeySequence("*"));
     ui->pushButton_exp_geteilt->setShortcut(QKeySequence("/"));
+    ui->pushButton_enter->setShortcut(QKeySequence("Enter"));
+
+    ui->pushButton_e->calcvalue = QString("_e");
 
     model = new QStringListModel(this);
     model->setStringList(history);
-    ui->listView->setModel(model);
+    //ui->listView->setModel(model);
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +37,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_enter_clicked()
 {
     QString calcexpression = ui->textEdit->toPlainText();
     history.append(calcexpression);
@@ -176,25 +178,48 @@ void MainWindow::AddCalcText(QString txtstr)
 
 QString MainWindow::Calculate(QString cStr)
 {
-    QString erg("");
-
     try
     {
         mu::Parser p;
         p.SetExpr(cStr.toStdString());
         std::stringstream buffer;
         buffer << p.Eval();
-        erg = QString::fromStdString(buffer.str());
+        currentResult = QString::fromStdString(buffer.str());
     }
     catch (mu::Parser::exception_type &e)
     {
-        erg ="Parser Error";
+        currentResult ="Parser Error";
     }
 
-    return erg;
+    return currentResult;
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_pi_clicked()
 {
+    AddCalcText("_pi");
+}
 
+void MainWindow::on_pushButton_e_clicked()
+{
+      // e.g. casting to the class you know its connected with
+    CButton* button = qobject_cast<CButton*>(sender());
+    if( button != NULL )
+    {
+        AddCalcText(button->calcvalue);
+    }
+}
+
+void MainWindow::on_pushButton_pow_clicked()
+{
+    AddCalcText("pow(");
+}
+
+void MainWindow::on_pushButton_log_clicked()
+{
+    AddCalcText("log(");
+}
+
+void MainWindow::on_pushButton_abs_clicked()
+{
+    AddCalcText("abs(");
 }

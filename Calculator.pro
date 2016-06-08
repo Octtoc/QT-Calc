@@ -12,9 +12,11 @@ TARGET = Calculator
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    cbutton.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    cbutton.h
 
 FORMS    += mainwindow.ui
 

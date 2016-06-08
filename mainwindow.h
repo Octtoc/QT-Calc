@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QString>
 #include <QStringList>
 #include <QStringListModel>
 
@@ -18,8 +19,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_pushButton_number1_clicked();
 
     void on_pushButton_number2_clicked();
@@ -64,11 +63,22 @@ private slots:
 
     void on_pushButton_number0_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_enter_clicked();
+
+    void on_pushButton_pi_clicked();
+
+    void on_pushButton_e_clicked();
+
+    void on_pushButton_pow_clicked();
+
+    void on_pushButton_log_clicked();
+
+    void on_pushButton_abs_clicked();
 
 private:
     Ui::MainWindow *ui;
     QList<QString> history;
+    QString currentResult;
     void AddCalcText(QString txtstr);
     void SetCalcText(QString txtstr);
     QString Calculate(QString cStr);
