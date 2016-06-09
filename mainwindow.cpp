@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <muparser/muparser.h>
+#include <QTextCursor>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     isEqual = false;
+    this->setEnterPressed(false);
 
     ui->pushButton_number0->setShortcut(QKeySequence("0"));
     ui->pushButton_number1->setShortcut(QKeySequence("1"));
@@ -40,6 +42,36 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::getEnterPressed()
+{
+    return _enterPressed;
+}
+
+void MainWindow::setEnterPressed(bool enter)
+{
+    _enterPressed = enter;
+}
+
+void MainWindow::PressCalcButton(QString text)
+{
+    AddCalcText(text);
+    this->setEnterPressed(false);
+}
+
+void MainWindow::PressCalcButton(QString text, CalcButtonType type)
+{
+    if (this->getEnterPressed() && type == CalcButtonType::number)
+    {
+        ui->textEdit->setText("");
+        AddCalcText(text);
+        this->setEnterPressed(false);
+    }
+    else
+    {
+        AddCalcText(text);
+    }
+}
+
 void MainWindow::on_pushButton_enter_clicked()
 {
     QString calcexpression = ui->textEdit->toPlainText();
@@ -47,121 +79,146 @@ void MainWindow::on_pushButton_enter_clicked()
     ui->textEdit->setText(Calculate(calcexpression));
 
     model->setStringList(history);
+
+    this->setEnterPressed(true);
 }
 
 void MainWindow::on_pushButton_number0_clicked()
 {
-    AddCalcText("0");
+    PressCalcButton("0",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number1_clicked()
 {
-    AddCalcText("1");
+    PressCalcButton("1",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number2_clicked()
 {
-    AddCalcText("2");
+    PressCalcButton("2",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number3_clicked()
 {
-    AddCalcText("3");
+    PressCalcButton("3",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number4_clicked()
 {
-    AddCalcText("4");
+    PressCalcButton("4",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number5_clicked()
 {
-    AddCalcText("5");
+    PressCalcButton("5",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number6_clicked()
 {
-    AddCalcText("6");
+    PressCalcButton("6",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number7_clicked()
 {
-    AddCalcText("7");
+    PressCalcButton("7",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number8_clicked()
 {
-    AddCalcText("8");
+    PressCalcButton("8",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_number9_clicked()
 {
-    AddCalcText("9");
+    PressCalcButton("9",CalcButtonType::number);
 }
 
 void MainWindow::on_pushButton_exp_plus_clicked()
 {
-    AddCalcText("+");
+    PressCalcButton("+");
 }
 
 void MainWindow::on_pushButton_exp_minus_clicked()
 {
-    AddCalcText("-");
+    PressCalcButton("-");
 }
 
 void MainWindow::on_pushButton_exp_mal_clicked()
 {
-    AddCalcText("*");
+    PressCalcButton("*");
 }
 
 void MainWindow::on_pushButton_exp_geteilt_clicked()
 {
-    AddCalcText("/");
+    PressCalcButton("/");
 }
 
 void MainWindow::on_pushButton_number_sin_clicked()
 {
-    AddCalcText("sin(");
+    PressCalcButton("sin(");
 }
 
 void MainWindow::on_pushButton_number_cos_clicked()
 {
-    AddCalcText("cos(");
+    PressCalcButton("cos(");
 }
 
 void MainWindow::on_pushButton_number_tan_clicked()
 {
-    AddCalcText("tan(");
+    PressCalcButton("tan(");
 }
 
 void MainWindow::on_pushButton_number_sqrt_clicked()
 {
-    AddCalcText("sqrt(");
+    PressCalcButton("sqrt(");
 }
 
 void MainWindow::on_pushButton_number_klauf_clicked()
 {
-    AddCalcText("(");
+    PressCalcButton("(");
 }
 
 void MainWindow::on_pushButton_number_klzu_clicked()
 {
-    AddCalcText(")");
+    PressCalcButton(")");
+}
+
+void MainWindow::on_pushButton_pow_clicked()
+{
+    PressCalcButton("pow(");
+}
+
+void MainWindow::on_pushButton_log_clicked()
+{
+    PressCalcButton("log(");
+}
+
+void MainWindow::on_pushButton_abs_clicked()
+{
+    PressCalcButton("abs(");
+}
+
+void MainWindow::on_pushButton_pi_clicked()
+{
+    PressCalcButton("_pi");
+}
+
+void MainWindow::on_pushButton_back_clicked()
+{
+    if (!this->getEnterPressed())
+    {
+        RemoveCalcText(ui->textEdit->toPlainText().size()-1,ui->textEdit->toPlainText().size());
+    }
 }
 
 void MainWindow::on_pushButton_number_C_clicked()
 {
-    SetCalcText("");
+    ui->textEdit->setText("");
 }
 
 void MainWindow::on_pushButton_number_CE_clicked()
 {
-    SetCalcText("");
-}
-
-void MainWindow::SetCalcText(QString txtstr)
-{
-    ui->textEdit->setText(txtstr);
+    ui->textEdit->setText("");
 }
 
 void MainWindow::AddCalcText(QString txtstr)
@@ -170,7 +227,7 @@ void MainWindow::AddCalcText(QString txtstr)
     if(isEqual)
     {
         isEqual=false;
-        SetCalcText("");
+        ui->textEdit->setText("");
         ui->textEdit->setText(txtstr);
     }
     else
@@ -202,11 +259,6 @@ void MainWindow::RemoveCalcText(int from, int to)
     ui->textEdit->setText(ui->textEdit->toPlainText().remove(from, to));
 }
 
-void MainWindow::on_pushButton_pi_clicked()
-{
-    AddCalcText("_pi");
-}
-
 void MainWindow::on_pushButton_e_clicked()
 {
       // e.g. casting to the class you know its connected with
@@ -215,24 +267,4 @@ void MainWindow::on_pushButton_e_clicked()
     {
         AddCalcText(button->calcvalue);
     }
-}
-
-void MainWindow::on_pushButton_pow_clicked()
-{
-    AddCalcText("pow(");
-}
-
-void MainWindow::on_pushButton_log_clicked()
-{
-    AddCalcText("log(");
-}
-
-void MainWindow::on_pushButton_abs_clicked()
-{
-    AddCalcText("abs(");
-}
-
-void MainWindow::on_pushButton_back_clicked()
-{
-    RemoveCalcText(ui->textEdit->toPlainText().size()-1,ui->textEdit->toPlainText().size());
 }

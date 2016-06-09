@@ -10,6 +10,11 @@ namespace Ui {
 class MainWindow;
 }
 
+enum CalcButtonType {
+    number,
+    calc
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -81,12 +86,17 @@ private:
     Ui::MainWindow *ui;
     QList<QString> history;
     QString currentResult;
-    void AddCalcText(QString txtstr);
-    void RemoveCalcText(int from, int to);
-    void SetCalcText(QString txtstr);
     QString Calculate(QString cStr);
     QStringListModel *model;
     bool isEqual;
+    bool _enterPressed;
+
+    void AddCalcText(QString txtstr);
+    void RemoveCalcText(int from, int to);
+    void setEnterPressed(bool enter);
+    void PressCalcButton(QString text);
+    void PressCalcButton(QString text, CalcButtonType type);
+    bool getEnterPressed();
 };
 
 #endif // MAINWINDOW_H
