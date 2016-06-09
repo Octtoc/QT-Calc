@@ -14,7 +14,20 @@
    <string>Calculator</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QPushButton {
+background-color: rgb(222,222,222);
+border: none;
+}
+
+QPushButton:hover {
+background-color: rgb(200,200,200);
+border: none;
+}
+
+QPushButton:hover:pressed {
+background-color: rgb(140,140,140);
+border: none;
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -522,6 +535,39 @@ background-color: rgb(222,222,222);</string>
    <header>CButton.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>pushButton_number1</tabstop>
+  <tabstop>pushButton_number2</tabstop>
+  <tabstop>pushButton_number3</tabstop>
+  <tabstop>pushButton_number4</tabstop>
+  <tabstop>pushButton_number5</tabstop>
+  <tabstop>pushButton_number6</tabstop>
+  <tabstop>pushButton_number7</tabstop>
+  <tabstop>pushButton_number8</tabstop>
+  <tabstop>pushButton_number9</tabstop>
+  <tabstop>pushButton_log</tabstop>
+  <tabstop>pushButton_number_sin</tabstop>
+  <tabstop>pushButton_number_cos</tabstop>
+  <tabstop>pushButton_number_tan</tabstop>
+  <tabstop>pushButton_abs</tabstop>
+  <tabstop>pushButton_number_sqrt</tabstop>
+  <tabstop>pushButton_number_C</tabstop>
+  <tabstop>pushButton_number_CE</tabstop>
+  <tabstop>pushButton_back</tabstop>
+  <tabstop>pushButton_exp_geteilt</tabstop>
+  <tabstop>pushButton_exp_mal</tabstop>
+  <tabstop>pushButton_exp_minus</tabstop>
+  <tabstop>pushButton_exp_plus</tabstop>
+  <tabstop>pushButton_pi</tabstop>
+  <tabstop>pushButton_e</tabstop>
+  <tabstop>pushButton_pow</tabstop>
+  <tabstop>pushButton_number_klauf</tabstop>
+  <tabstop>pushButton_number_klzu</tabstop>
+  <tabstop>pushButton_number0</tabstop>
+  <tabstop>pushButton_number_komma</tabstop>
+  <tabstop>pushButton_enter</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
