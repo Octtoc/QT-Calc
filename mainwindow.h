@@ -82,6 +82,8 @@ private slots:
 
     void on_pushButton_back_clicked();
 
+    void on_textEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
     QList<QString> history;

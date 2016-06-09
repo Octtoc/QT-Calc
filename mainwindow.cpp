@@ -62,7 +62,7 @@ void MainWindow::PressCalcButton(QString text, CalcButtonType type)
 {
     if (this->getEnterPressed() && type == CalcButtonType::number)
     {
-        ui->textEdit->setText("");
+        ui->lineEdit->setText("");
         AddCalcText(text);
         this->setEnterPressed(false);
     }
@@ -74,9 +74,9 @@ void MainWindow::PressCalcButton(QString text, CalcButtonType type)
 
 void MainWindow::on_pushButton_enter_clicked()
 {
-    QString calcexpression = ui->textEdit->toPlainText();
+    QString calcexpression = ui->lineEdit->text();
     history.append(calcexpression);
-    ui->textEdit->setText(Calculate(calcexpression));
+    ui->lineEdit->setText(Calculate(calcexpression));
 
     model->setStringList(history);
 
@@ -207,18 +207,18 @@ void MainWindow::on_pushButton_back_clicked()
 {
     if (!this->getEnterPressed())
     {
-        RemoveCalcText(ui->textEdit->toPlainText().size()-1,ui->textEdit->toPlainText().size());
+        RemoveCalcText(ui->lineEdit->text().size()-1,ui->lineEdit->text().size());
     }
 }
 
 void MainWindow::on_pushButton_number_C_clicked()
 {
-    ui->textEdit->setText("");
+    ui->lineEdit->setText("");
 }
 
 void MainWindow::on_pushButton_number_CE_clicked()
 {
-    ui->textEdit->setText("");
+    ui->lineEdit->setText("");
 }
 
 void MainWindow::AddCalcText(QString txtstr)
@@ -227,12 +227,12 @@ void MainWindow::AddCalcText(QString txtstr)
     if(isEqual)
     {
         isEqual=false;
-        ui->textEdit->setText("");
-        ui->textEdit->setText(txtstr);
+        ui->lineEdit->setText("");
+        ui->lineEdit->setText(txtstr);
     }
     else
     {
-        ui->textEdit->setText(ui->textEdit->toPlainText()+txtstr);
+        ui->lineEdit->setText(ui->lineEdit->text()+txtstr);
     }
 }
 
@@ -256,7 +256,7 @@ QString MainWindow::Calculate(QString cStr)
 
 void MainWindow::RemoveCalcText(int from, int to)
 {
-    ui->textEdit->setText(ui->textEdit->toPlainText().remove(from, to));
+    ui->lineEdit->setText(ui->lineEdit->text().remove(from, to));
 }
 
 void MainWindow::on_pushButton_e_clicked()
@@ -266,5 +266,17 @@ void MainWindow::on_pushButton_e_clicked()
     if( button != NULL )
     {
         AddCalcText(button->calcvalue);
+    }
+}
+
+void MainWindow::on_textEdit_textChanged()
+{
+    if (ui->lineEdit->text().size()>10)
+    {
+        QFont font = ui->lineEdit->font();
+        int textSize = 60-(ui->lineEdit->text().size());
+        font.setPixelSize(textSize);
+        //ui->lineEdit->font.setPixelSize(textSize);
+        ui->lineEdit->setFont(font);
     }
 }
