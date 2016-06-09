@@ -19,11 +19,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_number7->setShortcut(QKeySequence("7"));
     ui->pushButton_number8->setShortcut(QKeySequence("8"));
     ui->pushButton_number9->setShortcut(QKeySequence("9"));
+
     ui->pushButton_exp_plus->setShortcut(QKeySequence("+"));
     ui->pushButton_exp_minus->setShortcut(QKeySequence("-"));
     ui->pushButton_exp_mal->setShortcut(QKeySequence("*"));
     ui->pushButton_exp_geteilt->setShortcut(QKeySequence("/"));
+
     ui->pushButton_enter->setShortcut(QKeySequence("Enter"));
+    ui->pushButton_back->setShortcut(QKeySequence("Backspace"));
 
     ui->pushButton_e->calcvalue = QString("_e");
 
@@ -194,6 +197,11 @@ QString MainWindow::Calculate(QString cStr)
     return currentResult;
 }
 
+void MainWindow::RemoveCalcText(int from, int to)
+{
+    ui->textEdit->setText(ui->textEdit->toPlainText().remove(from, to));
+}
+
 void MainWindow::on_pushButton_pi_clicked()
 {
     AddCalcText("_pi");
@@ -222,4 +230,9 @@ void MainWindow::on_pushButton_log_clicked()
 void MainWindow::on_pushButton_abs_clicked()
 {
     AddCalcText("abs(");
+}
+
+void MainWindow::on_pushButton_back_clicked()
+{
+    RemoveCalcText(ui->textEdit->toPlainText().size()-1,ui->textEdit->toPlainText().size());
 }

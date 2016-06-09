@@ -20,9 +20,14 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
+RC_FILE = Calculator.rc
+
 include(muparser/muparser.pri)
 
 #unix|win32: LIBS += -L$$PWD/muparser_v2_2_4/lib/ -lmuparser
 
 #INCLUDEPATH += $$PWD/muparser_v2_2_4/include
 #DEPENDPATH += $$PWD/muparser_v2_2_4/include
+
+DISTFILES += \
+    Calculator.rc

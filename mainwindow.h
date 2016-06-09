@@ -75,11 +75,14 @@ private slots:
 
     void on_pushButton_abs_clicked();
 
+    void on_pushButton_back_clicked();
+
 private:
     Ui::MainWindow *ui;
     QList<QString> history;
     QString currentResult;
     void AddCalcText(QString txtstr);
+    void RemoveCalcText(int from, int to);
     void SetCalcText(QString txtstr);
     QString Calculate(QString cStr);
     QStringListModel *model;
