@@ -281,11 +281,7 @@ border: none;
          </font>
         </property>
         <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>ic_backspace_black_48dp_1x.png</normaloff>ic_backspace_black_48dp_1x.png</iconset>
+         <string>&lt;-</string>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -641,6 +637,9 @@ border: none;
     </item>
     <item row="0" column="0">
      <widget class="QLineEdit" name="lineEdit">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>

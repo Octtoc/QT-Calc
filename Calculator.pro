@@ -33,5 +33,4 @@ include(muparser/muparser.pri)
 DISTFILES += \
     Calculator.rc
 
-RESOURCES += \
-    back.qrc
+RESOURCES +=
