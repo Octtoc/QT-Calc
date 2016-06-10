@@ -13,11 +13,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    cbutton.cpp
+    cbutton.cpp \
+    cmultifunctionalbutton.cpp
 
 HEADERS  += mainwindow.h \
     cbutton.h \
-    stdafx.h
+    stdafx.h \
+    cmultifunctionalbutton.h
 
 FORMS    += mainwindow.ui
 

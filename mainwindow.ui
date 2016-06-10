@@ -472,7 +472,7 @@ border: none;
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="CButton" name="pushButton_number_sin">
+       <widget class="CMultifunctionalButton" name="pushButton_number_sin">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -485,12 +485,13 @@ border: none;
          </font>
         </property>
         <property name="text">
-         <string>sin</string>
+         <string>sin
+asin</string>
         </property>
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="CButton" name="pushButton_number_cos">
+       <widget class="CMultifunctionalButton" name="pushButton_number_cos">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -503,12 +504,13 @@ border: none;
          </font>
         </property>
         <property name="text">
-         <string>cos</string>
+         <string>cos
+acos</string>
         </property>
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="CButton" name="pushButton_number_tan">
+       <widget class="CMultifunctionalButton" name="pushButton_number_tan">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -521,7 +523,8 @@ border: none;
          </font>
         </property>
         <property name="text">
-         <string>tan</string>
+         <string>tan
+atan</string>
         </property>
        </widget>
       </item>
@@ -611,7 +614,7 @@ border: none;
          </font>
         </property>
         <property name="text">
-         <string>pow</string>
+         <string>^</string>
         </property>
        </widget>
       </item>
@@ -670,6 +673,11 @@ background-color: rgb(245,245,245);</string>
    <class>CButton</class>
    <extends>QPushButton</extends>
    <header>CButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>CMultifunctionalButton</class>
+   <extends>QPushButton</extends>
+   <header>cmultifunctionalbutton.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

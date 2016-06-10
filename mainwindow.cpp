@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_number_tan->calcvalue = QString("tan(");
     ui->pushButton_number_sqrt->calcvalue = QString("sqrt(");
     ui->pushButton_pi->calcvalue = QString("_pi");
-    ui->pushButton_pow->calcvalue = QString("pow(");
+    ui->pushButton_pow->calcvalue = QString("^");
     ui->pushButton_number_klauf->calcvalue = QString("(");
     ui->pushButton_number_klzu->calcvalue = QString(")");
 
@@ -171,6 +171,28 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_back_clicked()
 {
+    static bool test = true;
+
+    if (test)
+    {
+        ui->pushButton_number_sin->calcvalue = "asin(";
+        ui->pushButton_number_tan->calcvalue = "atan(";
+        ui->pushButton_number_cos->calcvalue = "acos(";
+        ui->pushButton_number_sin->setText("asin\nsin");
+        ui->pushButton_number_tan->setText("atan");
+        ui->pushButton_number_cos->setText("acos");
+        test = false;
+    }
+    else
+    {
+        ui->pushButton_number_sin->calcvalue = "sin(";
+        ui->pushButton_number_tan->calcvalue = "tan(";
+        ui->pushButton_number_cos->calcvalue = "cos(";
+        ui->pushButton_number_sin->setText("sin\nasin");
+        ui->pushButton_number_tan->setText("tan");
+        ui->pushButton_number_cos->setText("cos");
+        test = true;
+    }
     if (!this->getEnterPressed())
     {
         RemoveCalcText(ui->lineEdit->text().size()-1,ui->lineEdit->text().size());
@@ -211,7 +233,7 @@ QString MainWindow::Calculate(QString cStr)
     }
     catch (mu::Parser::exception_type &e)
     {
-        currentResult ="Parser Error";
+        currentResult = "Parser Error";
     }
 
     return currentResult;
