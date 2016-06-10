@@ -16,7 +16,8 @@ SOURCES += main.cpp\
     cbutton.cpp
 
 HEADERS  += mainwindow.h \
-    cbutton.h
+    cbutton.h \
+    stdafx.h
 
 FORMS    += mainwindow.ui
 
@@ -31,3 +32,6 @@ include(muparser/muparser.pri)
 
 DISTFILES += \
     Calculator.rc
+
+RESOURCES += \
+    back.qrc

@@ -21,22 +21,42 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QPushButton {
-background-color: rgb(222,222,222);
+background-color: rgb(240,240,240);
 border: none;
 }
 
 QPushButton:hover {
-background-color: rgb(200,200,200);
+background-color: rgb(220,220,220);
 border: none;
 }
 
 QPushButton:hover:pressed {
+background-color: rgb(200,200,200);
+border: none;
+}
+
+QPushButton:pressed {
 background-color: rgb(140,140,140);
 border: none;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridText">
       <property name="sizeConstraint">
@@ -46,20 +66,7 @@ border: none;
        <number>0</number>
       </property>
       <item row="1" column="6">
-       <widget class="QPushButton" name="pushButton_exp_geteilt">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>/</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="4">
-       <widget class="QPushButton" name="pushButton_number5">
+       <widget class="CButton" name="pushButton_exp_geteilt">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -68,7 +75,25 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="4">
+       <widget class="CButton" name="pushButton_number5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -79,7 +104,7 @@ border: none;
        </widget>
       </item>
       <item row="6" column="4">
-       <widget class="QPushButton" name="pushButton_number0">
+       <widget class="CButton" name="pushButton_number0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -88,6 +113,7 @@ border: none;
         </property>
         <property name="font">
          <font>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -98,124 +124,7 @@ border: none;
        </widget>
       </item>
       <item row="6" column="3">
-       <widget class="QPushButton" name="pushButton_number_klzu">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QPushButton" name="pushButton_number_klauf">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>(</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="6">
-       <widget class="QPushButton" name="pushButton_exp_plus">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>+</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="pushButton_number_C">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>C</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="6">
-       <widget class="QPushButton" name="pushButton_enter">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>=</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="6">
-       <widget class="QPushButton" name="pushButton_exp_minus">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="6">
-       <widget class="QPushButton" name="pushButton_exp_mal">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>*</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QPushButton" name="pushButton_number_CE">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>CE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5">
-       <widget class="QPushButton" name="pushButton_back">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>&lt;-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="4">
-       <widget class="QPushButton" name="pushButton_number8">
+       <widget class="CButton" name="pushButton_number_klzu">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -224,7 +133,179 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="CButton" name="pushButton_number_klauf">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>(</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6">
+       <widget class="CButton" name="pushButton_exp_plus">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="CButton" name="pushButton_number_C">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="6">
+       <widget class="CButton" name="pushButton_enter">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="6">
+       <widget class="CButton" name="pushButton_exp_minus">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="6">
+       <widget class="CButton" name="pushButton_exp_mal">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="CButton" name="pushButton_number_CE">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>CE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="CButton" name="pushButton_back">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>ic_backspace_black_48dp_1x.png</normaloff>ic_backspace_black_48dp_1x.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="CButton" name="pushButton_number8">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -235,7 +316,7 @@ border: none;
        </widget>
       </item>
       <item row="5" column="4">
-       <widget class="QPushButton" name="pushButton_number2">
+       <widget class="CButton" name="pushButton_number2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -244,7 +325,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -255,7 +336,7 @@ border: none;
        </widget>
       </item>
       <item row="2" column="5">
-       <widget class="QPushButton" name="pushButton_number9">
+       <widget class="CButton" name="pushButton_number9">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -264,7 +345,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -275,7 +356,7 @@ border: none;
        </widget>
       </item>
       <item row="6" column="5">
-       <widget class="QPushButton" name="pushButton_number_komma">
+       <widget class="CButton" name="pushButton_number_komma">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -284,6 +365,7 @@ border: none;
         </property>
         <property name="font">
          <font>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -294,7 +376,7 @@ border: none;
        </widget>
       </item>
       <item row="4" column="5">
-       <widget class="QPushButton" name="pushButton_number6">
+       <widget class="CButton" name="pushButton_number6">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -303,7 +385,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -314,7 +396,7 @@ border: none;
        </widget>
       </item>
       <item row="5" column="5">
-       <widget class="QPushButton" name="pushButton_number3">
+       <widget class="CButton" name="pushButton_number3">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -323,7 +405,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -334,7 +416,7 @@ border: none;
        </widget>
       </item>
       <item row="2" column="3">
-       <widget class="QPushButton" name="pushButton_number7">
+       <widget class="CButton" name="pushButton_number7">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -343,7 +425,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -354,7 +436,7 @@ border: none;
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="QPushButton" name="pushButton_number4">
+       <widget class="CButton" name="pushButton_number4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -363,7 +445,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -374,7 +456,7 @@ border: none;
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="QPushButton" name="pushButton_number1">
+       <widget class="CButton" name="pushButton_number1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -383,7 +465,7 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -394,12 +476,17 @@ border: none;
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QPushButton" name="pushButton_number_sin">
+       <widget class="CButton" name="pushButton_number_sin">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>sin</string>
@@ -407,12 +494,17 @@ border: none;
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="QPushButton" name="pushButton_number_cos">
+       <widget class="CButton" name="pushButton_number_cos">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>cos</string>
@@ -420,12 +512,17 @@ border: none;
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="QPushButton" name="pushButton_number_tan">
+       <widget class="CButton" name="pushButton_number_tan">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>tan</string>
@@ -433,12 +530,17 @@ border: none;
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton_number_sqrt">
+       <widget class="CButton" name="pushButton_number_sqrt">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>sqrt</string>
@@ -446,12 +548,17 @@ border: none;
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QPushButton" name="pushButton_pi">
+       <widget class="CButton" name="pushButton_pi">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>π</string>
@@ -466,18 +573,28 @@ border: none;
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>e</string>
         </property>
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton_log">
+       <widget class="CButton" name="pushButton_log">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>log</string>
@@ -492,18 +609,28 @@ border: none;
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>pow</string>
         </property>
        </widget>
       </item>
       <item row="0" column="6">
-       <widget class="QPushButton" name="pushButton_abs">
+       <widget class="CButton" name="pushButton_abs">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>abs</string>
@@ -523,13 +650,15 @@ border: none;
       <property name="font">
        <font>
         <family>SimSun-ExtB</family>
-        <pointsize>24</pointsize>
+        <pointsize>28</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">border: none;
 color: black;
-background-color: rgb(222,222,222);</string>
+background-color: rgb(245,245,245);</string>
       </property>
      </widget>
     </item>

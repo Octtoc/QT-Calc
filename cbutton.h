@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QApplication>
 #include <QPushButton>
+#include "stdafx.h"
 
 class CButton : public QPushButton
 {
@@ -11,6 +12,7 @@ class CButton : public QPushButton
 
 public:
     QString calcvalue;
+    CalcButtonType type;
     explicit CButton(QWidget *parent = 0);
     ~CButton();
 };
